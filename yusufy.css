@@ -1,6 +1,7 @@
 body {
   background-image: url("img/background.jpg");
   background: color #000000;
+  background-size: 100px 80px;
 }
 span,h1,h2,h3,p{
   color: white;
