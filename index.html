@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light" data-lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yusuf Yıldırım</title>
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    .toggle-theme i {
+      transition: transform 0.6s ease, opacity 0.6s ease;
+      display: inline-block;
+    }
+    :root {
+      --primary: #6b4f36;
+      --secondary: #c1a97b;
+      --bg: #fdfaf6;
+      --text: #3a2e25;
+      --muted: #7c6e65;
+      --card-bg: #fffaf3;
+      --shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+    [data-theme="dark"] {
+      --primary: #d4b68a;
+      --secondary: #a58b67;
+      --bg: #1e1e1e;
+      --text: #f5f5f5;
+      --muted: #999;
+      --card-bg: #2a2a2a;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 4rem;
+      min-height: 110px;
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: var(--shadow);
+      z-index: 1000;
+      transition: background-color 0.3s ease, transform 0.3s;
+    }
+    [data-theme="dark"] nav {
+      background-color: rgba(30, 30, 30, 0.95);
+    }
+    .logo {
+      flex: 1;
+      text-align: left;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--primary);
+      letter-spacing: 1px;
+      text-shadow: 0 2px 12px rgba(193,169,123,0.10);
+      display: inline;
+      width: auto;
+      padding: 0;
+      margin: 0;
+    }
+    .nav-links {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+    }
+    nav a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 900;
+      transition: color 0.3s;
+      font-size: 1.45rem;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 12px rgba(193,169,123,0.10);
+    }
+    .nav-links a {
+      margin-left: 0;
+    }
+    nav a:hover {
+      color: var(--secondary);
+      text-shadow: 0 2px 16px rgba(193,169,123,0.18);
+    }
+    .toggle-theme {
+      cursor: pointer;
+      font-size: 1.8rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 36px;
+      width: 36px;
+    }
+    .profile-pic {
+      width: 320px;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      border: 5px solid var(--primary);
+      margin-bottom: 2rem;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      background: #fff;
+    }
+    header {
+      padding-top: 140px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-bottom: 2rem;
+      background-color: var(--bg);
+      animation: fadeIn 1.5s ease;
+      overflow-x: hidden;
+      width: 100%;
+    }
+    .header-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: auto;
+      margin-top: -30px;
+    }
+    .social-icons {
+      margin-top: 2rem;
+      font-size: 2rem;
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+    }
+    .social-icons a {
+      color: var(--primary);
+      transition: color 0.3s;
+    }
+    .social-icons a:hover {
+      color: var(--secondary);
+    }
+    @keyframes slideIn {
+      from { transform: translateX(-50px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    header h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    header p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .cta-buttons a {
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s, transform 0.2s ease;
+    }
+    .cta-buttons a:hover {
+      transform: scale(1.05);
+    }
+    .cta-buttons a.primary {
+      background-color: var(--secondary);
+      color: white;
+    }
+    .cta-buttons a.primary:hover {
+      background-color: var(--primary);
+    }
+    .cta-buttons a.secondary {
+      border: 2px solid var(--secondary);
+      color: var(--secondary);
+    }
+    .cta-buttons a.secondary:hover {
+      background-color: var(--secondary);
+      color: white;
+    }
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    section {
+      margin: 4rem 0;
+      transition: all 0.4s ease-in-out;
+      scroll-margin-top: 120px;
+    }
+    h2 {
+      margin-bottom: 1rem;
+      color: var(--primary);
+      font-size: 1.8rem;
+    }
+    .project {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 220px;
+    }
+    .project:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.15);
+    }
+    .project h3 {
+      margin-bottom: 0.75rem;
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+    .project a {
+      text-decoration: none;
+      color: var(--secondary);
+      font-weight: 500;
+      margin-right: 10px;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+    #contact {
+      background-color: var(--card-bg);
+      padding: 6rem 2rem;
+      text-align: center;
+      border-radius: 16px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+      margin-top: 2rem;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    [data-theme="dark"] #contact {
+      background-color: #1f1f1f;
+      box-shadow: 0 12px 32px rgba(255, 255, 255, 0.05);
+    }
+    #contact h2 {
+      font-size: 2.5rem;
+      color: var(--text);
+    }
+    #contact p {
+      max-width: 700px;
+      margin: 1rem auto 2rem auto;
+      color: var(--muted);
+    }
+    #contact form {
+      max-width: 500px;
+      margin: 2rem auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    #contact input, #contact textarea {
+      padding: 0.75rem;
+      border: 1px solid var(--muted);
+      border-radius: 8px;
+      font-size: 1rem;
+      background-color: var(--card-bg);
+      color: var(--text);
+      transition: border 0.3s, background-color 0.3s;
+    }
+    #contact button {
+      padding: 0.75rem;
+      background-color: var(--secondary);
+      color: white;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    #contact button:hover {
+      background-color: var(--primary);
+      transform: scale(1.02);
+    }
+    #contact .social-icons {
+      margin-top: 2rem;
+      font-size: 1.5rem;
+    }
+    #contact .social-icons a {
+      margin: 0 10px;
+      color: var(--text);
+      transition: color 0.3s;
+    }
+    #contact .social-icons a:hover {
+      color: var(--secondary);
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      nav {
+        padding: 0.75rem 1rem;
+        min-height: 60px;
+      }
+      header {
+        padding-top: 80px;
+        min-height: 100vh;
+      }
+      .logo {
+        font-size: 1.6rem;
+        flex: unset;
+        text-align: center;
+      }
+      .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg);
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 1rem 1.5rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-20px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        z-index: -1;
+      }
+      .nav-links.active {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+        z-index: 100;
+      }
+      .nav-links a {
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        padding: 0.5rem 0;
+      }
+      .nav-actions {
+        position: absolute;
+        right: 1.2rem;
+        top: 1.2rem;
+        gap: 0.8rem;
+      }
+      .menu-toggle {
+        display: flex;
+        font-size: 1.5rem;
+        margin-left: 0;
+        height: 28px;
+        align-items: center;
+        justify-content: center;
+      }
+      .toggle-theme {
+        position: static;
+        font-size: 1.4rem;
+        height: 24px;
+        width: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 0.6rem;
+      }
+      .social-icons {
+        font-size: 1.4rem;
+        gap: 0.7rem;
+      }
+      .header-center {
+        margin-top: 0px;
+      }
+      section {
+        scroll-margin-top: 70px;
+      }
+      .toggle-language {
+        position: static;
+        height: 24px;
+        width: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .toggle-language img {
+        width: 24px !important;
+        height: 24px !important;
+      }
+      .icon-container {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+    }
+    @media (min-width: 769px) {
+      .nav-links {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: none !important;
+        padding: 0;
+        background: none;
+        height: auto;
+      }
+    }
+    .tag {
+      background-color: transparent;
+      color: var(--text);
+      border: 2px solid var(--secondary);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+    .tag:hover {
+      background-color: var(--secondary);
+      color: white;
+    }
+    .card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 16px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+    }
+    [data-theme="dark"] .card {
+      background: #1f1f1f;
+      box-shadow: 0 12px 32px rgba(255, 255, 255, 0.05);
+    }
+    .menu-toggle {
+      position: relative;
+      cursor: pointer;
+    }
+    .menu-toggle i {
+      transition: all 0.3s ease;
+    }
+    .menu-toggle i.fa-times {
+      transform: rotate(180deg);
+    }
+    .menu-toggle i.fa-bars {
+      transform: rotate(0deg);
+    }
+    .nav-actions {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 2.1rem;
+      cursor: pointer;
+      color: var(--primary);
+      transition: transform 0.4s ease;
+      align-items: center;
+      justify-content: center;
+      height: 36px;
+      margin-left: 0;
+      background: none;
+      border: none;
+    }
+    @media (max-width: 768px) {
+      .nav-actions {
+        position: absolute;
+        right: 1.2rem;
+        top: 1.2rem;
+        gap: 0.8rem;
+      }
+      .menu-toggle {
+        display: flex;
+        font-size: 1.5rem;
+        margin-left: 0;
+        height: 28px;
+      }
+      .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg);
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 1rem 1.5rem 1rem;
+        display: none;
+        animation: slideDown 0.3s ease forwards;
+        margin-left: 0;
+        align-items: center;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .nav-links a {
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        padding: 0.5rem 0;
+      }
+    }
+    .toggle-language {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 36px;
+      width: 36px;
+    }
+    .toggle-language img {
+      transition: transform 0.6s ease, opacity 0.6s ease;
+      display: inline-block;
+    }
+    .icon-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+    }
+    [data-key] {
+      transition: opacity 0.5s ease;
+    }
+  </style>
+  <script>
+    function toggleTheme() {
+      const root = document.documentElement;
+      const icon = document.querySelector('.toggle-theme i');
+      const newTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      
+      // Navbar'ı hemen güncelle
+      const navbar = document.querySelector('nav');
+      if (newTheme === 'dark') {
+        navbar.style.backgroundColor = 'rgba(30, 30, 30, 0.95)';
+      } else {
+        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+      }
+      
+      root.dataset.theme = newTheme;
+      localStorage.setItem('theme', newTheme);
+      
+      // İkon animasyonu (genişliği değiştirmeden)
+      icon.style.transition = 'transform 0.6s ease, opacity 0.6s ease';
+      icon.style.opacity = '0.6';
+      
+      setTimeout(() => {
+        icon.style.opacity = '1';
+        icon.classList.toggle('fa-moon', newTheme === 'light');
+        icon.classList.toggle('fa-sun', newTheme === 'dark');
+      }, 300);
+    }
+
+    // Dil değiştirme fonksiyonu ve çeviriler
+    const translations = {
+      tr: {
+        // Navbar
+        "about": "Hakkımda",
+        "projects": "Projeler",
+        "contact": "İletişim",
+        
+        // Header
+        "greeting": "Merhaba, ben Yusuf",
+        "job-title": "Junior Software Developer",
+        "see-projects": "Projelerimi Gör",
+        "contact-me": "İletişime Geç",
+        
+        // About
+        "about-title": "Hakkımda",
+        "about-text": "Kullanıcı dostu, veriye dayalı mobil uygulamalar geliştirmeye tutkuyla bağlı bir yazılım geliştiricisiyim. Gerçek zamanlı özellikler, sade arayüzler ve ölçeklenebilir mimarilerle çapraz platform uygulamaları geliştiriyorum.",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "education": "Eğitim",
+        "bs-statistics": "İstatistik Lisans",
+        "uni-name": "Dokuz Eylül Üniversitesi",
+        "courses": "Veri Analizi, Sağlam İstatistik, Kategorik Veri Modellemesi, Makine Öğrenmesi",
+        "experience": "İş Deneyimi",
+        "intern": "Stajyer",
+        "company": "VakıfBank",
+        "intern-desc": "Bireysel Krediler Departmanı - Müşteri analitiği ve kredi değerlendirmesi için iç araçlar üzerinde çalıştım.",
+        "freelance": "Serbest Mobil Geliştirici",
+        "freelance-desc": "Flutter ve React Native kullanarak su hatırlatıcı uygulaması, tiny house pazaryeri ve borsa tahmin panosu dahil olmak üzere mobil uygulamalar geliştirdim.",
+        
+        // Projects
+        "projects-title": "Projeler",
+        "project1-title": "Drinkly - Su Hatırlatma Uygulaması",
+        "project1-desc": "React Native ile geliştirilen, kullanıcıların su içme alışkanlıklarını takip etmelerini sağlayan bir uygulama.",
+        "project2-title": "Dodge Rush - Mobil Oyun",
+        "project2-desc": "Unity ile geliştirilen, engellerden kaçmaya dayalı eğlenceli bir mobil oyun.",
+        "project3-title": "Finance Tracker - Portföy Takibi",
+        "project3-desc": "Flutter ile geliştirilen, hisse senedi portföyünüzü takip etmenizi sağlayan uygulama.",
+        "project4-title": "TinyHouse Market - Emlak Platformu",
+        "project4-desc": "Mobilde Tiny House satış ve kiralama ilanlarının yayınlandığı modern bir uygulama.",
+        "project5-title": "Moodify - Müzik Öneri Uygulaması",
+        "project5-desc": "Kullanıcının ruh haline göre müzik öneren React Native uygulaması.",
+        "project6-title": "HarcApp - Gider Takip Uygulaması",
+        "project6-desc": "Kullanıcıların gelir/giderlerini kolayca takip etmelerine yardımcı olan mobil uygulama.",
+        "github": "GitHub",
+        "live-demo": "Canlı Demo",
+        
+        // Contact
+        "contact-title": "İletişime Geç",
+        "contact-text": "Herhangi bir sorunuz varsa benimle iletişime geçin. Formu doldurarak veya sosyal medya üzerinden bana ulaşabilirsiniz.",
+        "name-placeholder": "Adınız",
+        "email-placeholder": "E-posta",
+        "message-placeholder": "Mesajınız",
+        "send-button": "Gönder",
+        
+        // Footer
+        "copyright": "Yusuf Yıldırım© 2025 Tüm Hakları Saklıdır."
+      },
+      en: {
+        // Navbar
+        "about": "About Me",
+        "projects": "Projects",
+        "contact": "Contact",
+        
+        // Header
+        "greeting": "Hello, I'm Yusuf",
+        "job-title": "Junior Software Developer",
+        "see-projects": "View My Projects",
+        "contact-me": "Contact Me",
+        
+        // About
+        "about-title": "About Me",
+        "about-text": "I'm a software developer passionate about creating user-friendly, data-driven mobile applications. I develop cross-platform applications with real-time features, clean interfaces, and scalable architectures.",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "education": "Education",
+        "bs-statistics": "B.S. in Statistics",
+        "uni-name": "Dokuz Eylül University",
+        "courses": "Data Analysis, Robust Statistics, Categorical Data Modeling, Machine Learning",
+        "experience": "Work Experience",
+        "intern": "Intern",
+        "company": "VakıfBank",
+        "intern-desc": "Individual Loans Department – Worked on customer analytics and internal tools for credit assessment.",
+        "freelance": "Freelance Mobile Developer",
+        "freelance-desc": "Built mobile apps including a water reminder app, tiny house marketplace, and a stock forecasting dashboard using Flutter and React Native.",
+        
+        // Projects
+        "projects-title": "Projects",
+        "project1-title": "Drinkly - Water Reminder App",
+        "project1-desc": "A React Native app that helps users track their water drinking habits.",
+        "project2-title": "Dodge Rush - Mobile Game",
+        "project2-desc": "A fun mobile game developed with Unity based on dodging obstacles.",
+        "project3-title": "Finance Tracker - Portfolio Tracking",
+        "project3-desc": "A Flutter app that allows you to track your stock portfolio.",
+        "project4-title": "TinyHouse Market - Real Estate Platform",
+        "project4-desc": "A modern app for Tiny House sales and rental listings on mobile.",
+        "project5-title": "Moodify - Music Recommendation App",
+        "project5-desc": "A React Native app that recommends music based on the user's mood.",
+        "project6-title": "HarcApp - Expense Tracker",
+        "project6-desc": "A mobile app that helps users easily track their income and expenses.",
+        "github": "GitHub",
+        "live-demo": "Live Demo",
+        
+        // Contact
+        "contact-title": "Contact Me",
+        "contact-text": "If you have any questions, feel free to contact me. You can reach me by filling out the form or through social media.",
+        "name-placeholder": "Your Name",
+        "email-placeholder": "Email",
+        "message-placeholder": "Your Message",
+        "send-button": "Send",
+        
+        // Footer
+        "copyright": "Yusuf Yıldırım© 2025 All Rights Reserved."
+      }
+    };
+
+    function updateLanguage(lang) {
+      document.documentElement.setAttribute('lang', lang);
+      document.documentElement.setAttribute('data-lang', lang);
+      
+      // Tüm data-key özelliği olan elemanları bulalım
+      const elements = document.querySelectorAll('[data-key]');
+      
+      // Önce tüm elemanları solduralım
+      elements.forEach(el => {
+        el.style.opacity = '0';
+      });
+      
+      // Kısa bir beklemeden sonra içerikleri değiştirip tekrar görünür yapalım
+      setTimeout(() => {
+        elements.forEach(el => {
+          const key = el.getAttribute('data-key');
+          if (translations[lang][key]) {
+            // İnput, textarea gibi elementler için placeholder güncelleme
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+              el.placeholder = translations[lang][key];
+            } else {
+              el.textContent = translations[lang][key];
+            }
+          }
+          
+          // Kısa bir beklemeden sonra tekrar gösterelim
+          setTimeout(() => {
+            el.style.opacity = '1';
+          }, 50 * Math.random()); // Rastgele küçük gecikmelerle daha doğal bir görünüm
+        });
+        
+        // Dil değişikliğini localStorage'da saklayalım
+        localStorage.setItem('language', lang);
+      }, 300);
+    }
+
+    function toggleLanguage() {
+      const languageIcon = document.getElementById('language-icon');
+      const currentLang = document.documentElement.getAttribute('data-lang');
+      
+      // İkon animasyonu
+      languageIcon.style.transition = 'transform 0.6s ease, opacity 0.6s ease';
+      languageIcon.style.transform = 'rotate(180deg) scale(1.2)';
+      languageIcon.style.opacity = '0.6';
+      
+      if (currentLang === 'tr') {
+        // Türkçe'den İngilizce'ye geçiş
+        setTimeout(() => {
+          languageIcon.src = 'images/turkish.png';  // Değiştikten sonra Türkçe'ye dönmek için Türk bayrağı göster
+          languageIcon.alt = 'Türkçe';
+          languageIcon.style.transform = 'rotate(0deg) scale(1)';
+          languageIcon.style.opacity = '1';
+          updateLanguage('en');
+        }, 300);
+      } else {
+        // İngilizce'den Türkçe'ye geçiş
+        setTimeout(() => {
+          languageIcon.src = 'images/british.png';  // Değiştikten sonra İngilizce'ye dönmek için İngiliz bayrağı göster
+          languageIcon.alt = 'English';
+          languageIcon.style.transform = 'rotate(0deg) scale(1)';
+          languageIcon.style.opacity = '1';
+          updateLanguage('tr');
+        }, 300);
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme');
+      const savedLanguage = localStorage.getItem('language') || 'tr';
+      const root = document.documentElement;
+      
+      // Tema ayarları
+      if (savedTheme) {
+        root.dataset.theme = savedTheme;
+        const themeIcon = document.querySelector('.toggle-theme i');
+        themeIcon.classList.toggle('fa-sun', savedTheme === 'dark');
+        themeIcon.classList.toggle('fa-moon', savedTheme === 'light');
+      }
+      
+      // Data-key öğelerinin başlangıçta görünmesini sağla
+      document.querySelectorAll('[data-key]').forEach(el => {
+        el.style.opacity = '1';
+      });
+      
+      // Dil ayarları
+      updateLanguageNoAnimation(savedLanguage);
+      const languageIcon = document.getElementById('language-icon');
+      
+      // Mevcut dile bağlı olarak diğer dilin bayrağını göster (geçiş için)
+      if (savedLanguage === 'tr') {
+        languageIcon.src = 'images/british.png';  // Türkçe sayfada İngilizce'ye geçmek için İngiliz bayrağı
+        languageIcon.alt = 'English';
+      } else {
+        languageIcon.src = 'images/turkish.png';  // İngilizce sayfada Türkçe'ye geçmek için Türk bayrağı
+        languageIcon.alt = 'Türkçe';
+      }
+    });
+
+    // Animasyonsuz dil güncelleme fonksiyonu (ilk yükleme için)
+    function updateLanguageNoAnimation(lang) {
+      document.documentElement.setAttribute('lang', lang);
+      document.documentElement.setAttribute('data-lang', lang);
+      
+      // Tüm data-key özelliği olan elemanları bulalım ve içeriklerini güncelleyelim
+      const elements = document.querySelectorAll('[data-key]');
+      elements.forEach(el => {
+        const key = el.getAttribute('data-key');
+        if (translations[lang][key]) {
+          // İnput, textarea gibi elementler için placeholder güncelleme
+          if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+            el.placeholder = translations[lang][key];
+          } else {
+            el.textContent = translations[lang][key];
+          }
+        }
+      });
+      
+      // Dil değişikliğini localStorage'da saklayalım
+      localStorage.setItem('language', lang);
+    }
+
+    document.querySelector("form").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+      const status = document.getElementById("form-status");
+      status.innerText = "Gönderiliyor...";
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        if (response.ok) {
+          status.innerText = "Teşekkürler! Mesajınız gönderildi.";
+          form.reset();
+        } else {
+          status.innerText = "Bir hata oluştu. Lütfen tekrar deneyin.";
+        }
+      } catch (error) {
+        status.innerText = "Bağlantı hatası. Daha sonra tekrar deneyin.";
+      }
+    });
+
+    function toggleMenu() {
+      const menu = document.querySelector('.nav-links');
+      const toggleIcon = document.querySelector('.menu-toggle i');
+      
+      if (menu.classList.contains('active')) {
+        // Menüyü kapat
+        menu.style.opacity = '0';
+        menu.style.transform = 'translateY(-20px)';
+        
+        // Belirli bir süre sonra active sınıfını kaldır ve z-index'i değiştir
+        setTimeout(() => {
+          menu.classList.remove('active');
+          menu.style.zIndex = '-1';
+          toggleIcon.classList.remove('fa-times');
+          toggleIcon.classList.add('fa-bars');
+        }, 300); // transition süresiyle eşleşmeli
+      } else {
+        // Menüyü aç
+        menu.classList.add('active');
+        menu.style.zIndex = '100';
+        menu.style.opacity = '1';
+        menu.style.transform = 'translateY(0)';
+        toggleIcon.classList.remove('fa-bars');
+        toggleIcon.classList.add('fa-times');
+      }
+    }
+
+    // Logo'ya tıklandığında giriş ekranına animasyonlu scroll ve fade animasyonu
+    document.getElementById('logo-link').addEventListener('click', function(e) {
+      e.preventDefault();
+      const header = document.getElementById('home');
+      // Fade out animasyonu
+      header.style.transition = 'opacity 0.5s';
+      header.style.opacity = '0.2';
+      setTimeout(() => {
+        header.scrollIntoView({ behavior: 'smooth' });
+        header.style.opacity = '1';
+      }, 350);
+    });
+
+    // Menüde bir linke tıklanınca mobilde menüyü kapat
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        const menu = document.querySelector('.nav-links');
+        const toggleIcon = document.querySelector('.menu-toggle i');
+        if (window.innerWidth <= 768 && menu.classList.contains('active')) {
+          // Menüyü kapat
+          menu.style.opacity = '0';
+          menu.style.transform = 'translateY(-20px)';
+          
+          // Belirli bir süre sonra active sınıfını kaldır ve z-index'i değiştir
+          setTimeout(() => {
+            menu.classList.remove('active');
+            menu.style.zIndex = '-1';
+            toggleIcon.classList.remove('fa-times');
+            toggleIcon.classList.add('fa-bars');
+          }, 300); // transition süresiyle eşleşmeli
+        }
+      });
+    });
+
+    // Navbar scroll ile gizle/göster
+    let lastScrollY = window.scrollY;
+    const navbar = document.getElementById('main-navbar');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > lastScrollY && window.scrollY > 50) {
+        // aşağı kaydırılıyor
+        navbar.style.transform = 'translateY(-100%)';
+        navbar.style.transition = 'transform 0.3s';
+      } else {
+        // yukarı kaydırılıyor
+        navbar.style.transform = 'translateY(0)';
+        navbar.style.transition = 'transform 0.3s';
+      }
+      lastScrollY = window.scrollY;
+    });
+  </script>
+</head>
+<body>
+  <nav id="main-navbar">
+    <a href="#home" class="logo" id="logo-link">Yusuf Yıldırım</a>
+    <div class="nav-links">
+      <a href="#about" data-key="about">Hakkımda</a>
+      <a href="#projects" data-key="projects">Projeler</a>
+      <a href="#contact" data-key="contact">İletişim</a>
+    </div>
+    <div class="nav-actions">
+      <div class="icon-container">
+        <span class="toggle-language" onclick="toggleLanguage()">
+          <img src="images/turkish.png" alt="Türkçe" id="language-icon" class="language-flag" style="width: 28px; height: 28px; border-radius: 50%; box-shadow: 0 1px 3px rgba(0,0,0,0.2);">
+        </span>
+        <span class="toggle-theme" onclick="toggleTheme()"><i class="fas fa-moon"></i></span>
+      </div>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <header id="home">
+    <div class="header-center">
+      <img src="images/pp.png" alt="Profil Fotoğrafı" class="profile-pic">
+      <h1 data-key="greeting">Merhaba, ben Yusuf</h1>
+      <div class="subtitle" data-key="job-title">Junior Software Developer</div>
+      <div class="cta-buttons">
+        <a href="#projects" class="primary" data-key="see-projects">Projelerimi Gör</a>
+        <a href="#contact" class="secondary" data-key="contact-me">İletişime Geç</a>
+      </div>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/yusuframazany/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/yusufryildirim/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/yusufy" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2 style="font-size: 2.4rem; margin-bottom: 1.2rem; text-align: center;" data-key="about-title">Hakkımda</h2>
+      <p style="font-size: 1.1rem; text-align: center;" data-key="about-text">Kullanıcı dostu, veriye dayalı mobil uygulamalar geliştirmeye tutkuyla bağlı bir yazılım geliştiricisiyim. Gerçek zamanlı özellikler, sade arayüzler ve ölçeklenebilir mimarilerle çapraz platform uygulamaları geliştiriyorum.</p>
+
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; margin-top: 2rem;">
+        <div style="flex: 1; min-width: 200px;">
+          <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; text-align: center;" data-key="frontend">Frontend</h3>
+          <ul style="list-style: none; padding-left: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+            <li><span class="tag">Flutter</span></li>
+            <li><span class="tag">React Native</span></li>
+            <li><span class="tag">TailwindCSS</span></li>
+            <li><span class="tag">JavaScript</span></li>
+            <li><span class="tag">TypeScript</span></li>
+          </ul>
+        </div>
+        <div style="flex: 1; min-width: 200px;">
+          <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; text-align: center;" data-key="backend">Backend</h3>
+          <ul style="list-style: none; padding-left: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+            <li><span class="tag">Node.js</span></li>
+            <li><span class="tag">Firebase</span></li>
+            <li><span class="tag">Python</span></li>
+            <li><span class="tag">Express.js</span></li>
+            <li><span class="tag">MongoDB</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem;">
+        <div class="card" style="flex: 1; min-width: 250px;">
+          <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem; text-align: center;" data-key="education">Eğitim</h4>
+          <p><strong data-key="bs-statistics">B.S. in Statistics</strong> – <span data-key="uni-name">Dokuz Eylül University</span></p>
+          <ul style="margin-top: 0.5rem; font-size: 0.95rem;">
+            <li data-key="courses">Data Analysis, Robust Statistics, Categorical Data Modeling, Machine Learning</li>
+          </ul>
+        </div>
+        <div class="card" style="flex: 1; min-width: 250px;">
+          <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem; text-align: center;" data-key="experience">İş Deneyimi</h4>
+          <p><strong data-key="intern">Intern</strong> – <span data-key="company">VakıfBank</span> (2024)</p>
+          <ul style="font-size: 0.95rem;">
+            <li data-key="intern-desc">Individual Loans Department – Worked on customer analytics and internal tools for credit assessment.</li>
+          </ul>
+          <p><strong data-key="freelance">Freelance Mobile Developer</strong></p>
+          <ul style="font-size: 0.95rem;">
+            <li data-key="freelance-desc">Built mobile apps including a water reminder app, tiny house marketplace, and a stock forecasting dashboard using Flutter and React Native.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 style="text-align: center; font-size: 2rem; margin-bottom: 2rem;" data-key="projects-title">Projeler</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+        <div class="project card">
+          <h3 data-key="project1-title">Drinkly - Su Hatırlatma Uygulaması</h3>
+          <p data-key="project1-desc">React Native ile geliştirilen, kullanıcıların su içme alışkanlıklarını takip etmelerini sağlayan bir uygulama.</p>
+          <a href="#" data-key="github">GitHub</a> | <a href="#" data-key="live-demo">Canlı Demo</a>
+        </div>
+        <div class="project card">
+          <h3 data-key="project2-title">Dodge Rush - Mobil Oyun</h3>
+          <p data-key="project2-desc">Unity ile geliştirilen, engellerden kaçmaya dayalı eğlenceli bir mobil oyun.</p>
+          <a href="#" data-key="github">GitHub</a> | <a href="#" data-key="live-demo">Canlı Demo</a>
+        </div>
+        <div class="project card">
+          <h3 data-key="project3-title">Finance Tracker - Portföy Takibi</h3>
+          <p data-key="project3-desc">Flutter ile geliştirilen, hisse senedi portföyünüzü takip etmenizi sağlayan uygulama.</p>
+          <a href="#" data-key="github">GitHub</a> | <a href="#" data-key="live-demo">Canlı Demo</a>
+        </div>
+        <div class="project card">
+          <h3 data-key="project4-title">TinyHouse Market - Emlak Platformu</h3>
+          <p data-key="project4-desc">Mobilde Tiny House satış ve kiralama ilanlarının yayınlandığı modern bir uygulama.</p>
+          <a href="#" data-key="github">GitHub</a> | <a href="#" data-key="live-demo">Canlı Demo</a>
+        </div>
+        <div class="project card">
+          <h3 data-key="project5-title">Moodify - Müzik Öneri Uygulaması</h3>
+          <p data-key="project5-desc">Kullanıcının ruh haline göre müzik öneren React Native uygulaması.</p>
+          <a href="#" data-key="github">GitHub</a> | <a href="#" data-key="live-demo">Canlı Demo</a>
+        </div>
+        <div class="project card">
+          <h3 data-key="project6-title">HarcApp - Gider Takip Uygulaması</h3>
+          <p data-key="project6-desc">Kullanıcıların gelir/giderlerini kolayca takip etmelerine yardımcı olan mobil uygulama.</p>
+          <a href="#" data-key="github">GitHub</a> | <a href="#" data-key="live-demo">Canlı Demo</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 data-key="contact-title">İletişime Geç</h2>
+      <p data-key="contact-text">Herhangi bir sorunuz varsa benimle iletişime geçin. Formu doldurarak veya sosyal medya üzerinden bana ulaşabilirsiniz.</p>
+      <form action="https://formspree.io/f/mwkgeonp" method="POST">
+        <div id="form-status" style="margin-top: 1rem; color: var(--primary); font-weight: 600;"></div>
+        <input type="text" name="name" placeholder="Adınız" data-key="name-placeholder" required />
+        <input type="email" name="email" placeholder="E-posta" data-key="email-placeholder" required />
+        <textarea name="message" rows="5" placeholder="Mesajınız" data-key="message-placeholder" required></textarea>
+        <button type="submit" data-key="send-button">Gönder</button>
+      </form>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/yusuframazany/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/yusufryildirim/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/yusufy" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p data-key="copyright">Yusuf Yıldırım© 2025 Tüm Hakları Saklıdır.</p>
+  </footer>
+</body>
+</html>
