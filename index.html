@@ -637,11 +637,11 @@
         
         // Contact
         "contact-title": "İletişime Geç",
-        "contact-text": "Herhangi bir sorunuz varsa benimle iletişime geçin. Formu doldurarak veya sosyal medya üzerinden bana ulaşabilirsiniz.",
+        "contact-text": "Herhangi bir sorunuz varsa benimle iletişime geçin. Aşağıdaki mail bağlantısını kullanarak veya sosyal medya üzerinden bana ulaşabilirsiniz.",
         "name-placeholder": "Adınız",
         "email-placeholder": "E-posta",
         "message-placeholder": "Mesajınız",
-        "send-button": "Gönder",
+        "send-button": "E-posta Gönder",
         
         // Footer
         "copyright": "Yusuf Yıldırım© 2025 Tüm Hakları Saklıdır."
@@ -693,11 +693,11 @@
         
         // Contact
         "contact-title": "Contact Me",
-        "contact-text": "If you have any questions, feel free to contact me. You can reach me by filling out the form or through social media.",
+        "contact-text": "If you have any questions, feel free to contact me. You can reach me using the email link below or through social media.",
         "name-placeholder": "Your Name",
         "email-placeholder": "Email",
         "message-placeholder": "Your Message",
-        "send-button": "Send",
+        "send-button": "Send Email",
         
         // Footer
         "copyright": "Yusuf Yıldırım© 2025 All Rights Reserved."
@@ -824,31 +824,6 @@
       // Dil değişikliğini localStorage'da saklayalım
       localStorage.setItem('language', lang);
     }
-
-    document.querySelector("form").addEventListener("submit", async function(e) {
-      e.preventDefault();
-      const form = e.target;
-      const data = new FormData(form);
-      const status = document.getElementById("form-status");
-      status.innerText = "Gönderiliyor...";
-      try {
-        const response = await fetch(form.action, {
-          method: form.method,
-          body: data,
-          headers: {
-            'Accept': 'application/json'
-          }
-        });
-        if (response.ok) {
-          status.innerText = "Teşekkürler! Mesajınız gönderildi.";
-          form.reset();
-        } else {
-          status.innerText = "Bir hata oluştu. Lütfen tekrar deneyin.";
-        }
-      } catch (error) {
-        status.innerText = "Bağlantı hatası. Daha sonra tekrar deneyin.";
-      }
-    });
 
     function toggleMenu() {
       const menu = document.querySelector('.nav-links');
@@ -1054,14 +1029,20 @@
 
     <section id="contact">
       <h2 data-key="contact-title">İletişime Geç</h2>
-      <p data-key="contact-text">Herhangi bir sorunuz varsa benimle iletişime geçin. Formu doldurarak veya sosyal medya üzerinden bana ulaşabilirsiniz.</p>
-      <form action="https://formspree.io/f/mwkgeonp" method="POST">
-        <div id="form-status" style="margin-top: 1rem; color: var(--primary); font-weight: 600;"></div>
-        <input type="text" name="name" placeholder="Adınız" data-key="name-placeholder" required />
-        <input type="email" name="email" placeholder="E-posta" data-key="email-placeholder" required />
-        <textarea name="message" rows="5" placeholder="Mesajınız" data-key="message-placeholder" required></textarea>
-        <button type="submit" data-key="send-button">Gönder</button>
-      </form>
+      <p data-key="contact-text">Herhangi bir sorunuz varsa benimle iletişime geçin. Aşağıdaki mail bağlantısını kullanarak veya sosyal medya üzerinden bana ulaşabilirsiniz.</p>
+      
+      <div style="text-align: center; margin: 2rem 0;">
+        <a href="mailto:yusufrmzn12@gmail.com" 
+           style="display: inline-block; background-color: var(--secondary); color: white; padding: 0.75rem 2rem; 
+                  border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.1rem;
+                  transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.1);"
+           onmouseover="this.style.backgroundColor='var(--primary)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.15)';"
+           onmouseout="this.style.backgroundColor='var(--secondary)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)';">
+          <i class="far fa-envelope" style="margin-right: 0.5rem;"></i>
+          <span data-key="send-button">E-posta Gönder</span>
+        </a>
+      </div>
+      
       <div class="social-icons">
         <a href="https://www.instagram.com/yusuframazany/" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://www.linkedin.com/in/yusufryildirim/" target="_blank"><i class="fab fa-linkedin"></i></a>
